@@ -26,12 +26,14 @@ def contact_book(rgb,hsl):
         r=random.randint(0, 255)
         g=random.randint(0, 255)
         b=random.randint(0, 255)
-        return (r, g, b)
+        return f"rgb{(r, g, b)}"
     def hsl_colour() :
         h = random.randint(0,360)
-        s = random.randint(0,100)
-        l = random.randint(0,100)
-        return(h,s,l)
+        s = "%s%%"%random.randint(0,100)
+        l = "%s%%"%random.randint(0,100)
+        z=f"\N{DEGREE SIGN}"
+        hsl =f"({h}{z},{s},{l})"
+        return f"hsl{hsl}"
     
     
     if rgb:
