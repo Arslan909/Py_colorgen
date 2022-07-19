@@ -17,7 +17,7 @@ parser.add_argument("-s",
 args=parser.parse_args()
 
 
-def contact_book(rgb,hsl):
+def colour_combination(rgb,hsl):
     """
     Generate a color combination
     """
@@ -27,13 +27,20 @@ def contact_book(rgb,hsl):
         g=random.randint(0, 255)
         b=random.randint(0, 255)
         return f"rgb{(r, g, b)}"
+    
     def hsl_colour() :
         h = random.randint(0,360)
         s = "%s%%"%random.randint(0,100)
-        l = "%s%%"%random.randint(0,100)
-        z=f"\N{DEGREE SIGN}"
-        hsl =f"({h}{z},{s},{l})"
+        l = "%s%%"%random.randint(0,100) 
+        hsl =f"({h},{s},{l})"
         return f"hsl{hsl}"
+    
+    def hex_colour():
+        random_hex=random.randint(0,16777215)
+        random_hex=hex(random_hex)       
+        random_hex=random_hex.split("x")[1]        #remove "0" and "x" from start
+        random_hex="".join("#"+random_hex)
+        return random_hex
     
     
     if rgb:
@@ -41,17 +48,10 @@ def contact_book(rgb,hsl):
     if hsl:
         return hsl_colour()
     else:
-        hex = ''.join("#"+(format(random.randint(0, 16777215), "x")))
-    return hex
-
-    
-        
-
-
-
+        return hex_colour()
 
 
 if __name__ == '__main__':
 
-    print(contact_book(args.rgb,args.hsl))
+    print(colour_combination(args.rgb,args.hsl))
     exit(0)
