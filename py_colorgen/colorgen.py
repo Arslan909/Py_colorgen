@@ -26,14 +26,16 @@ def colour_combination(rgb,hsl):
         r=random.randint(0, 255)
         g=random.randint(0, 255)
         b=random.randint(0, 255)
-        return f"rgb{(r, g, b)}"
+        rgb= f"rgb{(r, g, b)}"
+        return rgb
     
     def hsl_colour() :
         h = random.randint(0,360)
         s = "%s%%"%random.randint(0,100)
         l = "%s%%"%random.randint(0,100) 
-        hsl =f"({h},{s},{l})"
-        return f"hsl{hsl}"
+        hsl =f"hsl({h},{s},{l})"
+        return hsl
+    
     
     def hex_colour():
         random_hex=random.randint(0,16777215)
